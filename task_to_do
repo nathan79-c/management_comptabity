@@ -1,0 +1,25 @@
+Etudiant
+
+-identifiant de l'etudiant +(id)
+role de l'etudiant"
+verifier le son solde(son compte)
+
+frais:
+- montant
+- type de frais
+- id
+
+comptable:
+- identifiant de la comptable(id)
+
+role du comptable:
+=> valider le recu de ledudiant
+=> modifier le sole de l'edutiant(CRUD)
+
+Promotion:
++ nom 
+tableau <Etudiant>
+
+
+ 
+
