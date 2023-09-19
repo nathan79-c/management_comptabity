@@ -41,8 +41,8 @@ class ManagementController extends Controller
 
     }
 
-    public function createFraisStudent(){
-
+    public function store(Request $request){
+        echo($request);
     }
     public function updateFraisStudent(){
 
