@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [StudentController::class, 'index']);
-ROute::post('/',[StudentController::class,'register'])->name('userCompte');
+ROute::post('/',[StudentController::class,'login'])->name('userCompte');
 
 
 Route::middleware([
@@ -28,12 +28,13 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 
-   Route::Post('/addPromotion',[ManagementController::class,'updatePromotion']);
+   Route::Post('/addPromotion',[ManagementController::class,'updatePromotion'])->name('show');
    Route::get('/addStudent',function(){
         return view('addstudent');
    })->name('addStudent');
    Route::get('/find',function(){
         return view('findStudent');
    })->name('findStudent');
+
 
 });
