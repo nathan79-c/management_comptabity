@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ManagementController;
 use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,5 +27,10 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
-    
+
+   Route::Post('/addPromotion',[ManagementController::class,'updatePromotion']);
+   Route::get('/addStudent',function(){
+        return view('addstudent');
+   });
+
 });
