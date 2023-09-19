@@ -70,7 +70,17 @@ class ManagementController extends Controller
     public function updateFraisStudent(){
 
     }
-    public function deleteFraisStudent(){
+    public function deleteFraisStudent(Request $request){
+
+
+        $fee = Frais::find($request->id);
+
+        if ($fee) {
+            $fee->delete();
+        }
+
+        return view('dashboard');
+
 
     }
     public function afficherMontantFrais(Request $request)

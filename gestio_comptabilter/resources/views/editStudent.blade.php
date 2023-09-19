@@ -17,7 +17,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <p class="text-center">Le solde actuel est de {{ $solde }}.</p>
+                            <p class="text-center">son solde actuel est de {{ $solde }}.</p>
                         </div>
                     </div>
                     <div class="row">
@@ -31,6 +31,13 @@
                                 @foreach ($frais_payes as $frais)
                                     <li class="list-group-item list-group-item-{{ $frais->type }}">
                                         {{ $frais->type }} - Montant payé : {{ $frais->montant }}
+                                      <form method="POST" action="{{route('edit_level')}}">
+                                        @method('post')
+                                        @csrf
+                                        <input type="text" value="{{$frais->id}}" name="id" class="hidden bg-blue-500 rounded-md p-2 text-sm text-white">
+                                        <button type="submit">Supprimer le frais </button>
+                                      </form>
+
                                     </li>
                                 @endforeach
                             </ul>

@@ -40,6 +40,7 @@ Route::middleware([
    Route::get('/succes',function(){
         return view('succes');
    })->name('Succes');
+   Route::post('/delete', [ManagementController::class, 'deleteFraisStudent'])->name('edit_level');
 
 
 });
