@@ -14,7 +14,7 @@
             <input type="text" id="type" name="type" required class="border-2 border-gray-300 rounded-md mb-2">
 
             <label for="etudiant_id" class="mb-2"> Matricule étudiant:</label>
-            <input type="text" id="type" name="type" required class="border-2 border-gray-300 rounded-md mb-2">
+            <input type="text" id="type" name="matricule" required class="border-2 border-gray-300 rounded-md mb-2">
 
             <button type="submit" class="ml-auto px-4 py-2 bg-blue-500 text-black text-xl rounded-md border-radius-5">confirmer</button>
           </form>

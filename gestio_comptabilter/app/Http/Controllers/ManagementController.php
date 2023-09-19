@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Imports\YourImportClass;
 use App\Models\Student;
+use App\Models\Frais;
 
 class ManagementController extends Controller
 {
@@ -40,9 +41,31 @@ class ManagementController extends Controller
          $user->save();
 
     }
+    public function findStudentIdByMatricule($matricule){
+    $student = DB::table('student')->where('mat', $matricule)->first();
+
+    if ($student) {
+        return $student->id;
+    } else {
+        return null;
+    }
+}
+
 
     public function store(Request $request){
-        echo($request);
+       $montant = $request->montant;
+       $type = $request->type;
+       $matricule = $request->matricule;
+       $etudiant_id= $this->findStudentIdByMatricule($matricule);
+       $frais = new Frais();
+       $frais->montant = $montant;
+       $frais->type = $type;
+       $frais->etudiant_id = $etudiant_id;
+       if ($frais->save()) {
+        return redirect()->route('Succes');
+    } else {
+        return "La sauvegarde a échoué.";
+    }
     }
     public function updateFraisStudent(){
 
@@ -50,4 +73,27 @@ class ManagementController extends Controller
     public function deleteFraisStudent(){
 
     }
+    public function afficherMontantFrais(Request $request)
+{
+    $etudiant = Student::where('mat', $request->matricule)->first();
+
+
+
+    if ($etudiant) {
+        $montantTotal = Frais::where('etudiant_id', $etudiant->id)->get();
+        $solde = $etudiant->solde;
+            foreach ($montantTotal as $fraisPaye) {
+                $solde -= $fraisPaye->montant;
+            }
+
+        return view('editStudent', [
+            'student' =>$etudiant,
+            'frais_payes' => $montantTotal,
+            'solde' => $solde
+
+        ]);
+    } else {
+        return "Étudiant introuvable";
+    }
+}
 }

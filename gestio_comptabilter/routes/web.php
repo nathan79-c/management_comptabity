@@ -35,7 +35,11 @@ Route::middleware([
    Route::get('/find',function(){
         return view('findStudent');
    })->name('findStudent');
+   Route::post('/findstudent',[ManagementController::class,'afficherMontantFrais'])->name('studentFind');
    Route::post('/store',[ManagementController::class,'store'])->name('store');
+   Route::get('/succes',function(){
+        return view('succes');
+   })->name('Succes');
 
 
 });
