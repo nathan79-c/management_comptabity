@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsVt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>page html</title>
 </head>
 <body>
@@ -33,7 +33,30 @@
                     <ul class="list-group">
                         @foreach ($frais_payes as $frais)
                             <li class="list-group-item list-group-item-{{ $frais->type }}">
-                                {{ $frais->type }} - Montant payé : {{ $frais->montant }}
+
+                                <table class="table">
+                                    <thead class="thead-dark">
+                                      <tr>
+                                        <th scope="col">{{ $frais->type }}</th>
+                                        <th scope="col">- Montant payé :</th>
+
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        <th scope="row">1</th>
+                                        <td>{{ $frais->montant }}</td>
+
+                                      </tr>
+
+                                      <tr>
+
+                                      </tr>
+                                    </tbody>
+                                  </table>
+
+                                 
+                                  </table>
                             </li>
                         @endforeach
                     </ul>
