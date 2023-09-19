@@ -31,6 +31,9 @@ Route::middleware([
    Route::Post('/addPromotion',[ManagementController::class,'updatePromotion']);
    Route::get('/addStudent',function(){
         return view('addstudent');
-   });
+   })->name('addStudent');
+   Route::get('/find',function(){
+        return view('findStudent');
+   })->name('findStudent');
 
 });
