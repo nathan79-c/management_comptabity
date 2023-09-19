@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [StudentController::class, 'index']);
+ROute::post('/',[StudentController::class,'register'])->name('userCompte');
 
 
 Route::middleware([
